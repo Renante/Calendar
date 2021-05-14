@@ -1,0 +1,16 @@
+.days, .weeks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.days > div, .weeks > div {
+  width: calc(100% / 7);
+}
+
+.active {
+  background: pink;
+}
+/*# sourceMappingURL=style.css.map */
