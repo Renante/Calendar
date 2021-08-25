@@ -1,9 +1,10 @@
 var app = angular.module('app', []);
-app.controller('defaultController', function () {
-    var vm = this;
+app.controller('defaultController', function ($scope) {
+    
 
     var calendar = new Calendar();
-    vm.calendar = calendar;
+    $scope.calendar = calendar;
+    $scope.calendar.init();
 
 });
 

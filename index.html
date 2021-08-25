@@ -6,37 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link href="style.css" rel="stylesheet"/>
+    <link href="calendar.css" rel="stylesheet"/>
 </head>
-<body ng-app="app" ng-controller="defaultController as vm">
+<body ng-app="app" ng-controller="defaultController">
     <div class="calendar">
-        <div>
-            <a href="" ng-click="vm.calendar.prevMonth()">Previous</a>
-            <a href="" ng-click="vm.calendar.nextMonth()">Next</a>
+        <div class="navigation">
+    
+            <div>
+                <span class="month">{{ calendar.monthName }}</span>
+                <span class="year">{{ calendar.year }}</span>
+            </div>
+            <div>
+                <a href="" ng-click="calendar.prevMonth()">Previous</a>
+                <a href="" ng-click="calendar.nextMonth()">Next</a>
+            </div>
         </div>
-        <div>
-            <span>{{ vm.year }}</span>
-        </div>
-
-        <div>
-            Month: {{ vm.calendar.monthName }}
-        </div>
-        <div>
+        
+        <div class="calendar__body">
             <div class="weeks">
-                <div>Monday</div>
-                <div>Tuesday</div>
-                <div>Wednesday</div>
-                <div>Thursday</div>
-                <div>Friday</div>
-                <div>Saturday</div>
-                <div>Sunday</div>
+                <div>MON</div>
+                <div>TUE</div>
+                <div>WED</div>
+                <div>THU</div>
+                <div>FRI</div>
+                <div>SAT</div>
+                <div>SUN</div>
             </div>
             <div class="days">
-                <div ng-repeat="x in [].constructor(vm.calendar.startDay) track by $index">
-                    
+                <div ng-repeat="x in [].constructor(calendar.startDay) track by $index">
+    
                 </div>
-                <div ng-repeat="day in vm.calendar.days" ng-class="{'active' : day.active}">
-                    {{ day.day }}
+                <div ng-repeat="day in calendar.days" ng-class="{'current' : day.isCurrent, 'active' : day.isActive}" ng-click="calendar.dayClick(day, onDaySelected)">
+                    <div ng-if="day.dayFormat" ng-bind-html="day.dayFormat"></div>
+                    <div ng-if="!day.dayFormat">{{ day.day }}</div>
                 </div>
             </div>
         </div>
