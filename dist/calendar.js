@@ -5,20 +5,20 @@ var Calendar = /** @class */ (function () {
         this.monthNames = ["January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
         ];
-        this._date = new Date();
+        this.date = new Date();
         this.onCalendarUpdated = null;
         this.initialLoad = true;
-        this._date = new Date();
+        this.date = new Date();
     }
     Calendar.prototype.init = function () {
         this.updateCalendar();
     };
     Calendar.prototype.nextMonth = function () {
-        this._date.setMonth(this._date.getMonth() + 1);
+        this.date.setMonth(this.date.getMonth() + 1);
         this.updateCalendar();
     };
     Calendar.prototype.prevMonth = function () {
-        this._date.setMonth(this._date.getMonth() - 1);
+        this.date.setMonth(this.date.getMonth() - 1);
         this.updateCalendar();
     };
     Calendar.prototype.dayClick = function (day, callback) {
@@ -27,8 +27,8 @@ var Calendar = /** @class */ (function () {
         if (callback) {
             callback({
                 day: day.day,
-                month: this._date.getMonth(),
-                year: this._date.getFullYear()
+                month: this.date.getMonth(),
+                year: this.date.getFullYear()
             });
         }
     };
@@ -39,19 +39,19 @@ var Calendar = /** @class */ (function () {
     };
     ;
     Calendar.prototype.isCurrentMonth = function () {
-        return new Date().getMonth() == this._date.getMonth();
+        return new Date().getMonth() == this.date.getMonth();
     };
     Calendar.prototype.updateCalendar = function () {
-        this.year = this._date.getFullYear();
-        this.month = this._date.getMonth();
+        this.year = this.date.getFullYear();
+        this.month = this.date.getMonth();
         this.monthName = this.monthNames[this.month];
         var endOfMonthDate = new Date(this.year, this.month + 1, 0).getDate();
         var startOfMonth = new Date(this.year, this.month, 1);
         this.startDay = startOfMonth.getDay();
         this.totalDays = endOfMonthDate;
         this.days = new Array();
-        var currentDay = this.isCurrentMonth() ? this._date.getDate() : 0;
-        var activeDay = this.isCurrentMonth() ? this._date.getDate() : 1;
+        var currentDay = this.isCurrentMonth() ? this.date.getDate() : 0;
+        var activeDay = this.isCurrentMonth() ? this.date.getDate() : 1;
         for (var i = 1; i <= endOfMonthDate; i++) {
             var d = {
                 day: i,
@@ -64,8 +64,8 @@ var Calendar = /** @class */ (function () {
             this.onCalendarUpdated({
                 info: {
                     day: activeDay,
-                    month: this._date.getMonth(),
-                    year: this._date.getFullYear(),
+                    month: this.date.getMonth(),
+                    year: this.date.getFullYear(),
                     days: this.days
                 }
             });

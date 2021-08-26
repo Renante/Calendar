@@ -7,7 +7,7 @@ class Calendar {
         "July", "August", "September", "October", "November", "December"
     ];
 
-    _date: Date = new Date();
+    date: Date = new Date();
     days: Day[];
 
     year: number;
@@ -23,7 +23,7 @@ class Calendar {
 
 
     constructor() {
-        this._date = new Date();
+        this.date = new Date();
     }
 
     init(): void {
@@ -31,12 +31,12 @@ class Calendar {
     }
 
     nextMonth(): void {
-        this._date.setMonth(this._date.getMonth() + 1);
+        this.date.setMonth(this.date.getMonth() + 1);
         this.updateCalendar();
     }
 
     prevMonth(): void {
-        this._date.setMonth(this._date.getMonth() - 1);
+        this.date.setMonth(this.date.getMonth() - 1);
         this.updateCalendar();
     }
 
@@ -48,8 +48,8 @@ class Calendar {
             
             callback({
                 day: day.day,
-                month: this._date.getMonth(),
-                year: this._date.getFullYear()
+                month: this.date.getMonth(),
+                year: this.date.getFullYear()
             });
         }
     }
@@ -61,13 +61,13 @@ class Calendar {
     };
 
     private isCurrentMonth(): boolean {
-        return new Date().getMonth() == this._date.getMonth();
+        return new Date().getMonth() == this.date.getMonth();
+
     }
 
     updateCalendar(): void {
-
-        this.year = this._date.getFullYear();
-        this.month = this._date.getMonth();
+        this.year = this.date.getFullYear();
+        this.month = this.date.getMonth();
         this.monthName = this.monthNames[this.month];
         
         let endOfMonthDate = new Date(this.year, this.month + 1, 0).getDate();
@@ -78,8 +78,8 @@ class Calendar {
 
         this.days = new Array<Day>();
 
-        let currentDay = this.isCurrentMonth() ? this._date.getDate() : 0;
-        let activeDay = this.isCurrentMonth() ? this._date.getDate() : 1;
+        let currentDay = this.isCurrentMonth() ? this.date.getDate() : 0;
+        let activeDay = this.isCurrentMonth() ? this.date.getDate() : 1;
 
         for (let i = 1; i <= endOfMonthDate; i++) {
             let d: Day = {
@@ -95,8 +95,8 @@ class Calendar {
             this.onCalendarUpdated({
                 info: {
                     day: activeDay,
-                    month: this._date.getMonth(),
-                    year: this._date.getFullYear(),
+                    month: this.date.getMonth(),
+                    year: this.date.getFullYear(),
                     days: this.days
                 }
             });
