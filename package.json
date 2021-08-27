@@ -1,0 +1,23 @@
+{
+  "name": "rdacalendar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "angular": "^1.8.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Renante/Calendar.git"
+  },
+  "author": "Renante Abril",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Renante/Calendar/issues"
+  },
+  "homepage": "https://github.com/Renante/Calendar#readme"
+}

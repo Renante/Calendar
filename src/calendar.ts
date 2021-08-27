@@ -1,6 +1,3 @@
-/// <reference path="date.ts"/>
-/// <reference path="day.ts"/>
-
 class Calendar {
 
     monthNames = ["January", "February", "March", "April", "May", "June",
@@ -19,9 +16,6 @@ class Calendar {
 
     onCalendarUpdated = null;
     
-    initialLoad: boolean = true;
-
-
     constructor() {
         this.date = new Date();
     }

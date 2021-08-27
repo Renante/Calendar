@@ -1,15 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+var app = angular.module('rdaCalendar', []);
+app.controller('rdaCalendar.Controller', function ($scope) {
 
-    <link href="/dist/calendar.css" rel="stylesheet"/>
-</head>
-<body ng-app="app" ng-controller="defaultController">
-    <div class="calendar">
+});
+
+app.directive('calendar', function(){
+    return {
+        restrict: 'EA',
+        scope: {
+            onDaySelected: '&',
+            onCalendarUpdated: '&',
+        },
+        templateUrl: 'calendar.html',
+        
+        link: function (scope) {
+            scope.calendar = new Calendar();
+            scope.calendar.onCalendarUpdated = scope.onCalendarUpdated;
+            scope.calendar.init();
+
+            scope.$on('changeDayFormat', function (event, data) {
+                var d = scope.calendar.days.filter(d => d.day == data.day)[0];
+                if (d)
+                    d.dayFormat = data.dayFormat;
+            })
+
+            scope.$on('updateCalendar', function () {
+                scope.calendar.updateCalendar();
+            })
+        }
+    };
+});
+
+app.run(function($templateCache){
+    $templateCache.put('calendar.html',
+    `<div class="calendar">
         <div class="navigation">
     
             <div>
@@ -42,10 +65,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO7KFA==" crossorigin="anonymous"></script>
-    <script src="/dist/calendar.js"></script>
-    <script src="main.js"></script>
-</body>
-</html>
+    </div>`
+    );
+});
