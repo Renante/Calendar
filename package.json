@@ -2,7 +2,7 @@
   "name": "rdacalendar",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "calendar.js",
   "dependencies": {
     "angular": "^1.8.2"
   },
