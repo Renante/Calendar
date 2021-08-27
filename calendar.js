@@ -1,19 +1,19 @@
 var app = angular.module('rdaCalendar', []);
 app.controller('rdaCalendar.Controller', function ($scope) {
-
+    $scope.calendar = new Calendar();        
 });
 
 app.directive('calendar', function(){
     return {
-        restrict: 'EA',
+        restrict: 'E',
         scope: {
             onDaySelected: '&',
             onCalendarUpdated: '&',
         },
         templateUrl: 'calendar.html',
-        
+        controller: 'rdaCalendar.Controller',
         link: function (scope) {
-            scope.calendar = new Calendar();
+            
             scope.calendar.onCalendarUpdated = scope.onCalendarUpdated;
             scope.calendar.init();
 
@@ -68,3 +68,91 @@ app.run(function($templateCache){
     </div>`
     );
 });
+
+class Calendar {
+
+    monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    onCalendarUpdated = null;
+    
+    constructor() {
+        this.date = new Date();
+    }
+
+    init() {
+        this.updateCalendar();
+    }
+
+    nextMonth() {
+        this.date.setMonth(this.date.getMonth() + 1);
+        this.updateCalendar();
+    }
+
+    prevMonth() {
+        this.date.setMonth(this.date.getMonth() - 1);
+        this.updateCalendar();
+    }
+
+    dayClick(day, callback) {
+        this.resetActiveDay();
+        this.days.filter(d => d.day == day.day)[0].isActive = true;
+        
+        if (callback) {
+            callback({
+                day: day.day,
+                month: this.date.getMonth(),
+                year: this.date.getFullYear()
+            });
+        }
+    }
+    
+    resetActiveDay() {
+        this.days.forEach(function (day) {
+            day.isActive = false;
+        });
+    };
+
+    isCurrentMonth() {
+        return new Date().getMonth() == this.date.getMonth();
+
+    }
+
+    updateCalendar(){
+        this.year = this.date.getFullYear();
+        this.month = this.date.getMonth();
+        this.monthName = this.monthNames[this.month];
+        
+        let endOfMonthDate = new Date(this.year, this.month + 1, 0).getDate();
+        let startOfMonth = new Date(this.year, this.month, 1);
+
+        this.startDay = startOfMonth.getDay();
+        this.totalDays = endOfMonthDate;
+
+        this.days = [];
+
+        let currentDay = this.isCurrentMonth() ? this.date.getDate() : 0;
+        let activeDay = this.isCurrentMonth() ? this.date.getDate() : 1;
+
+        for (let i = 1; i <= endOfMonthDate; i++) {
+            this.days.push({
+                day: i,
+                isCurrent: i === currentDay,
+                isActive: activeDay === i,
+            });
+        }
+
+        if (this.onCalendarUpdated) {
+            this.onCalendarUpdated({
+                info: {
+                    day: activeDay,
+                    month: this.date.getMonth(),
+                    year: this.date.getFullYear(),
+                    days: this.days
+                }
+            });
+        }
+        
+    }
+}
