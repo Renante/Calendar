@@ -4,7 +4,8 @@
   "description": "A simple AngularJS calendar",
   "main": "calendar.js",
   "dependencies": {
-    "angular": "^1.8.2"
+    "angular": "^1.8.2",
+    "angular-sanitize": "^1.8.2"
   },
   "devDependencies": {},
   "scripts": {

@@ -1,4 +1,4 @@
-var app = angular.module('rdaCalendar', []);
+var app = angular.module('rdaCalendar', ['ngSanitize']);
 app.controller('rdaCalendar.Controller', function ($scope) {
     class Calendar {
 
