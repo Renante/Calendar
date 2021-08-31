@@ -1,6 +1,6 @@
 {
   "name": "@renante/rdacalendar",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A simple AngularJS calendar",
   "main": "calendar.js",
   "dependencies": {
@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/Renante/Calendar/issues"
   },
-  "homepage": "https://github.com/Renante/Calendar#readme",
+  "homepage": "https://renante.github.io/Calendar/demo.html",
   "keywords": [
     "calendar",
     "angularjs"
