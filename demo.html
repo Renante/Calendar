@@ -7,14 +7,15 @@
     <title>Demo Calendar</title>
 
     <link href="/dist/calendar.css" rel="stylesheet"/>
+    <link href="/dist/style.css" rel="stylesheet"/>
 
 </head>
 <body ng-app="app" ng-controller="defaultController">
 
     <calendar on-calendar-updated="onCalendarUpdated(info)" on-day-selected="onDaySelected(day)"></calendar>
 
-    <script src="/node_modules/angular/angular.min.js"></script>
-    <script src="/node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO7KFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.8.2/angular-sanitize.min.js" integrity="sha512-JkCv2gG5E746DSy2JQlYUJUcw9mT0vyre2KxE2ZuDjNfqG90Bi7GhcHUjLQ2VIAF1QVsY5JMwA1+bjjU5Omabw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/dist/calendar.js"></script>
     <script src="main.js"></script>
 </body>

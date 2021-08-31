@@ -3,20 +3,23 @@ app.controller('defaultController', function ($scope, $timeout) {
 
     $scope.onCalendarUpdated = function (info) {
         angular.forEach(info.days, function (day) {
-            day.dayFormat = `<span>${day.day}</span>`;
+            if(day.day == 20)
+                day.dayFormat = '<span class="event">Some event here</span>';
+            else
+                day.dayFormat = `<span>${day.day}</span>`;
         });
     }
 
-    $timeout(function () {
-        $scope.$broadcast('changeDayFormat', { day: 1, dayFormat: 'first day of the month' });
-    });
+    // $timeout(function () {
+    //     $scope.$broadcast('changeDayFormat', { day: 22, dayFormat: '<span class="event">Some event here</span>' });
+    // });
 
-    $timeout(function(){
-        $scope.$broadcast('updateCalendar');
-    }, 1000);
+    // $timeout(function(){
+    //     $scope.$broadcast('updateCalendar');
+    // }, 1000);
 
     $scope.onDaySelected = function (day) {
-        console.log(`Day selected ${day}`);
+        alert(day);
     }
 });
 
