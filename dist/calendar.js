@@ -107,8 +107,10 @@ app.directive('calendar', function(){
 
             scope.$on('changeDayFormat', function (event, data) {
                 var d = scope.calendar.days.filter(d => d.day == data.day)[0];
-                if (d)
+                if (d) {
                     d.dayFormat = data.dayFormat;
+                    d.class = data.class;
+                }
             })
 
             scope.$on('updateCalendar', function () {
@@ -147,7 +149,7 @@ app.run(function($templateCache){
                 <div ng-repeat="x in [].constructor(calendar.startDay) track by $index">
     
                 </div>
-                <div ng-repeat="day in calendar.days" ng-class="{'current' : day.isCurrent, 'active' : day.isActive}" ng-click="calendar.dayClick(day, onDaySelected)">
+                <div ng-repeat="day in calendar.days" class="{{ day.class }}" ng-class="{'current' : day.isCurrent, 'active' : day.isActive}" ng-click="calendar.dayClick(day, onDaySelected)">
                     <div ng-if="day.dayFormat" ng-bind-html="day.dayFormat"></div>
                     <div ng-if="!day.dayFormat">{{ day.day }}</div>
                 </div>

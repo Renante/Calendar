@@ -22,8 +22,8 @@ Add calendar module as dependency.
 
 **onCalendarUpdated**
 
-This will fire everytime the calendar is updating (when navigating months).
-It will allow you to modify the individual days before it render on the calendar by setting the `dayFormat`.
+This will fire everytime the calendar is updated (eg. when navigating months).
+It will allow you to modify the individual days before it render on the calendar by setting the `dayFormat` or `class`.
 
 
     <calendar on-calendar-updated="onCalendarUpdated(info)"></calendar> 
@@ -33,6 +33,7 @@ Example:
     $scope.onCalendarUpdated = function(info) {
        angular.forEach(info.days, function(day){
            day.dayFormat = `<span class='day'>${ day.day }</span>`;
+           day.class = 'pink-bg';
        });
     }
 
