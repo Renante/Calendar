@@ -37,6 +37,12 @@
         margin:20px 0;
     }
 
+    .weeks, .days {
+        > div {
+            text-align: center;
+        }
+    }
+
     .days {
         > div {
             height: 80px;

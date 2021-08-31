@@ -49,6 +49,10 @@
   margin: 20px 0;
 }
 
+.calendar .weeks > div, .calendar .days > div {
+  text-align: center;
+}
+
 .calendar .days > div {
   height: 80px;
   padding: 8px;
