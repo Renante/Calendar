@@ -1,80 +1,10 @@
 .calendar {
-    .navigation {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 20px 0;
-
-        > div:first-child {
-            display: flex;
-            gap: 10px;
-            align-items: flex-end;
-            flex-direction: column-reverse;
-        }
-
-        .month {
-            font-size: 38px;
-            font-weight: bolder;
-        }
-
-        .year {
-            line-height: 1;
-        }
-
-        i {
-            color: #009FA9;
-            text-decoration: none;
-            font-size: 26px;
-            opacity: .6;
-
-            &:hover {
-                opacity: 1;
-            }
-        }
-    }
-
-    &__body {
-        margin:20px 0;
-    }
-
     .days, .weeks {
         display: flex;
         flex-wrap: wrap;
 
         > div {
             width: calc(100% / 7);
-            text-align: center;
-        }
-    }
-
-    .days {
-        > div {
-            height: 80px;
-            padding: 8px;
-            box-sizing: border-box;
-            border-radius: 8px;
-            cursor: pointer;
-
-            &:hover {
-                background: #f7f7f7;
-            }
-        }
-    }
-
-    .weeks {
-        > div {
-            font-size: 12px;
-            font-weight: bold;
-            padding: 20px 0;
-            color: gray;
-        }
-    }
-
-    .current {
-        background: #ccfcff;
-    }
-
-    .active {
-        background: #f2f2f2;
+        }   
     }
 }

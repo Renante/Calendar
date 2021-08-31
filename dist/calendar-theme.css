@@ -1,0 +1,60 @@
+.calendar .navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 0;
+}
+
+.calendar .navigation > div:first-child {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+.calendar .navigation .month {
+  font-size: 38px;
+  font-weight: bolder;
+}
+
+.calendar .navigation .year {
+  line-height: 1;
+}
+
+.calendar .navigation i {
+  color: #009FA9;
+  text-decoration: none;
+  font-size: 26px;
+  opacity: .6;
+}
+
+.calendar .navigation i:hover {
+  opacity: 1;
+}
+
+.calendar__body {
+  margin: 20px 0;
+}
+
+.calendar .days > div {
+  height: 80px;
+  padding: 8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 8px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=calendar-theme.css.map */

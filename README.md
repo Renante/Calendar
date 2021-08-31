@@ -9,6 +9,13 @@ Install the plugin via npm.
 
 Load necessary files.
 
+`calendar.css` is mandatory for layout.
+
+`calendar-theme.css` is optional and you can ignore if you like to full control the layout.
+
+    <link href="/node_modules/@renante/rdacalendar/dist/calendar.css" rel="stylesheet"/>
+    <link href="/node_modules/@renante/rdacalendar/dist/calendar-theme.css" rel="stylesheet"/>
+
     <script src="/node_modules/angular/angular.min.js"></script>
     <script src="/node_modules/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="/node_modules/@renante/rdacalendar/dist/calendar.js"></script>
