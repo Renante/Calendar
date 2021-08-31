@@ -17,11 +17,13 @@ app.controller('rdaCalendar.Controller', function ($scope) {
         }
     
         nextMonth() {
+            this.date.setDate(1);
             this.date.setMonth(this.date.getMonth() + 1);
             this.updateCalendar();
         }
     
         prevMonth() {
+            this.date.setDate(1);
             this.date.setMonth(this.date.getMonth() - 1);
             this.updateCalendar();
         }
@@ -47,7 +49,6 @@ app.controller('rdaCalendar.Controller', function ($scope) {
     
         isCurrentMonth() {
             return new Date().getMonth() == this.date.getMonth();
-    
         }
     
         updateCalendar(){
