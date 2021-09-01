@@ -97,6 +97,8 @@ app.directive('calendar', function(){
         scope: {
             onDaySelected: '&',
             onCalendarUpdated: '&',
+            prev: '@',
+            next: '@'
         },
         templateUrl: 'calendar.html',
         controller: 'rdaCalendar.Controller',
@@ -130,8 +132,8 @@ app.run(function($templateCache){
                 <span class="year">{{ calendar.year }}</span>
             </div>
             <div>
-                <a href="" ng-click="calendar.prevMonth()">Previous</a>
-                <a href="" ng-click="calendar.nextMonth()">Next</a>
+                <a href="" ng-click="calendar.prevMonth()" ng-bind-html="prev ? prev : 'Previous'"></a>
+                <a href="" ng-click="calendar.nextMonth()">{{ next ? next : 'Next' }}</a>
             </div>
         </div>
         
