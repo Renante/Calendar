@@ -151,7 +151,7 @@ app.run(function($templateCache){
                 <div ng-repeat="x in [].constructor(calendar.startDay) track by $index">
     
                 </div>
-                <div ng-repeat="day in calendar.days" class="{{ day.class }}" ng-class="{'current' : day.isCurrent, 'active' : day.isActive}" ng-click="calendar.dayClick(day, onDaySelected)">
+                <div ng-repeat="day in calendar.days" class="day {{ day.class }}" ng-class="{'current' : day.isCurrent, 'active' : day.isActive}" ng-click="calendar.dayClick(day, onDaySelected)">
                     <div ng-if="day.dayFormat" ng-bind-html="day.dayFormat"></div>
                     <div ng-if="!day.dayFormat">{{ day.day }}</div>
                 </div>
