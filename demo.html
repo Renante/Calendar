@@ -13,7 +13,12 @@
 </head>
 <body ng-app="app" ng-controller="defaultController">
 
-    <calendar on-calendar-updated="onCalendarUpdated(info)" on-day-selected="onDaySelected(day)"></calendar>
+    <calendar
+        on-calendar-updated="onCalendarUpdated(info)"
+        on-day-selected="onDaySelected(day)"
+        prev="Previous"
+        next="Next">
+    </calendar>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" integrity="sha512-7oYXeK0OxTFxndh0erL8FsjGvrl2VMDor6fVqzlLGfwOQQqTbYsGPv4ZZ15QHfSk80doyaM0ZJdvkyDcVO7KFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.8.2/angular-sanitize.min.js" integrity="sha512-JkCv2gG5E746DSy2JQlYUJUcw9mT0vyre2KxE2ZuDjNfqG90Bi7GhcHUjLQ2VIAF1QVsY5JMwA1+bjjU5Omabw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

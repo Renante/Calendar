@@ -24,6 +24,20 @@ Add calendar module as dependency.
 
     var app = angular.module('app', ['rdaCalendar']);
 
+## Options
+
+**prev**
+
+Override 'Previous' text.
+
+    <calendar prev="<< Previous"></calendar>
+
+**next**
+
+Override 'Next' text.
+
+    <calendar next="Next >>"></calendar>
+
 ## Methods
 
 
