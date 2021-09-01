@@ -133,7 +133,7 @@ app.run(function($templateCache){
             </div>
             <div>
                 <a href="" ng-click="calendar.prevMonth()" ng-bind-html="prev ? prev : 'Previous'"></a>
-                <a href="" ng-click="calendar.nextMonth()" ng-bind-html="next ? next : 'Next'"</a>
+                <a href="" ng-click="calendar.nextMonth()" ng-bind-html="next ? next : 'Next'"></a>
             </div>
         </div>
         
