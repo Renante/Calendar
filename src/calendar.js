@@ -122,6 +122,7 @@ app.directive('calendar', function(){
     };
 });
 
+
 app.run(['$templateCache', function($templateCache){
     $templateCache.put('calendar.html',
     `<div class="calendar">
@@ -139,13 +140,13 @@ app.run(['$templateCache', function($templateCache){
         
         <div class="calendar__body">
             <div class="weeks">
+                <div>SUN</div>
                 <div>MON</div>
                 <div>TUE</div>
                 <div>WED</div>
                 <div>THU</div>
                 <div>FRI</div>
                 <div>SAT</div>
-                <div>SUN</div>
             </div>
             <div class="days">
                 <div ng-repeat="x in [].constructor(calendar.startDay) track by $index">
