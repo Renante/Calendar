@@ -98,7 +98,8 @@ app.directive('calendar', function(){
             onDaySelected: '&',
             onCalendarUpdated: '&',
             prev: '@',
-            next: '@'
+            next: '@',
+            firstDay: '@'
         },
         templateUrl: 'calendar.html',
         controller: 'rdaCalendar.Controller',
@@ -118,6 +119,8 @@ app.directive('calendar', function(){
             scope.$on('updateCalendar', function () {
                 scope.calendar.updateCalendar();
             })
+
+            if(!scope.firstDay) scope.firstDay = 1;
         }
     };
 });
@@ -140,16 +143,17 @@ app.run(['$templateCache', function($templateCache){
         
         <div class="calendar__body">
             <div class="weeks">
+                <div ng-if="firstDay == 0">SUN</div>
                 <div>MON</div>
                 <div>TUE</div>
                 <div>WED</div>
                 <div>THU</div>
                 <div>FRI</div>
                 <div>SAT</div>
-                <div>SUN</div>
+                <div ng-if="firstDay == 1">SUN</div>
             </div>
             <div class="days">
-                <div ng-repeat="x in [].constructor(calendar.startDay === 0 ? 6 : calendar.startDay-1) track by $index">
+                <div ng-repeat="x in [].constructor(calendar.startDay === 0 ? (firstDay == 0 ? 0 : 6) : (firstDay == 0 ? calendar.startDay : calendar.startDay-1)) track by $index">
                 </div>
                 <div ng-repeat="day in calendar.days" class="day {{ day.class }}" ng-class="{'current' : day.isCurrent, 'active' : day.isActive}" ng-click="calendar.dayClick(day, onDaySelected)">
                     <div ng-if="day.dayFormat" ng-bind-html="day.dayFormat"></div>

@@ -38,6 +38,11 @@ Override 'Next' text.
 
     <calendar next="Next >>"></calendar>
 
+**first-day**
+
+The day of the week begin. 0 = Sunday, 1 = Monday.
+
+    
 ## Methods
 
 
